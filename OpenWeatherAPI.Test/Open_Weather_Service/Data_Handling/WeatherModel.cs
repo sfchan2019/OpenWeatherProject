@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
 {
@@ -27,6 +28,8 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
         public int humidity { get; set; }
         public double temp_min { get; set; }
         public double temp_max { get; set; }
+        public double sea_level { get; set; }
+        public double grnd_level { get; set; }
     }
 
     class Wind
@@ -35,10 +38,19 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
         public int deg { get; set; }
     }
 
+    [DataContract]
     class Rain
     {
         //issues
-        public double threeH { get; set; }
+        [DataMember(Name = "1h")]
+        public double oneHour { get; set; }
+        [DataMember(Name = "3h")]
+        public double threeHour { get; set; }
+    }
+    class Snow
+    {
+        //public double 1h { get; set; }
+        //public double 3h { get; set; }
     }
 
     class Clouds

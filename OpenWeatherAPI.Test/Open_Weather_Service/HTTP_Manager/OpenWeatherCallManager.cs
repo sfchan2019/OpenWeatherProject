@@ -23,6 +23,5 @@ namespace OpenWeatherAPI.Open_Weather_Service.HTTP_Manager
             IRestResponse response = client.Execute(request, Method.GET);
             return response.Content;
         }
-
     }
 }
