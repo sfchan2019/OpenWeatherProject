@@ -20,14 +20,12 @@ namespace OpenWeatherAPI.Open_Weather_Service
         OpenWeatherCallManager openWeatherCallManager = new OpenWeatherCallManager();
         //JObject
         JObject weatherReportJson;
-        //IList<Param> for response header;
-        public IList<Parameter> headers;
 
         public OpenWeatherService()
         {
             weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
             weatherReportJson = JObject.Parse(openWeatherCallManager.GetWeatherForecast());
-            headers = openWeatherCallManager.headers;
+            weatherDTO.ParseWeatherReportHeader(openWeatherCallManager.headers);
         }
     }
 }

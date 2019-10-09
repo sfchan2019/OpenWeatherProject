@@ -326,5 +326,11 @@ namespace OpenWeatherAPI.Tests
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.cod);
         }
+
+        [Test]
+        public void Header_Connection_Test()
+        {
+            Assert.AreEqual("Connection=keep-alive", service.headers[0]);
+        }
     }
 }
