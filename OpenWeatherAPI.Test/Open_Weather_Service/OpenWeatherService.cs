@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenWeatherAPI.Open_Weather_Service.Data_Handling;
 using OpenWeatherAPI.Open_Weather_Service.HTTP_Manager;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 
 namespace OpenWeatherAPI.Open_Weather_Service
@@ -20,7 +21,7 @@ namespace OpenWeatherAPI.Open_Weather_Service
         public JObject weatherReportJson;
         public OpenWeatherService()
         {
-            //weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
+            weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
             weatherReportJson = JObject.Parse(openWeatherCallManager.GetWeatherForecast());
         }
     }

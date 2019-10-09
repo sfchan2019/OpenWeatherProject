@@ -59,7 +59,7 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
     class WeatherReportRoot
     {
         public Coord coord { get; set; }
-        public Weather weather { get; set; }
+        public List<Weather> weather { get; set; }
         public string @base { get; set; }
         public Main main { get; set; }
         public int visibility { get; set; }

@@ -20,9 +20,9 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Coord_Test()
         {
-            //Assert.AreEqual(-0.13,service.weatherDTO.WeatherReport.coord.lat);
-            //Assert.AreEqual(51.51, service.weatherDTO.WeatherReport.coord.lon);
-            Assert.AreEqual(-0.13, Double.Parse(service.weatherReportJson["coord"]["lon"].ToString()));
+            Assert.AreEqual(-0.13, service.weatherDTO.WeatherReport.coord.lon);
+            Assert.AreEqual(51.51,service.weatherDTO.WeatherReport.coord.lat);
+            //Assert.AreEqual(-0.13, Double.Parse(service.weatherReportJson["coord"]["lon"].ToString()));
         }
     }
 }
