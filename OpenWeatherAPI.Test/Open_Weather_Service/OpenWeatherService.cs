@@ -17,12 +17,11 @@ namespace OpenWeatherAPI.Test.Open_Weather_Service
         //Call Manager
         OpenWeatherCallManager openWeatherCallManager = new OpenWeatherCallManager();
         //JObject
-        JObject weatherResultJson;
+        JObject weatherReportJson;
         public OpenWeatherService()
         {
             weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
+            weatherReportJson = JObject.Parse(openWeatherCallManager.GetWeatherForecast());
         }
-
-
     }
 }
