@@ -26,7 +26,9 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
             //May cause problem? say header[3] is null will return false
             ReportHeader.Access_Control_Allow_Credentials = (headerRest[3].Value.ToString() == "true");
             ReportHeader.Access_Control_Allow_Methods = headerRest[4].Value as string;
-            ReportHeader.Content_Length = headerRest[5].Value as int?;
+            int contentLength;
+            Int32.TryParse(headerRest[5].Value.ToString(), out contentLength);
+            ReportHeader.Content_Length = contentLength;
             ReportHeader.Content_Type = headerRest[6].Value as string;
             ReportHeader.Date = headerRest[7].Value as string;
             ReportHeader.Server = headerRest[8].Value as string;
