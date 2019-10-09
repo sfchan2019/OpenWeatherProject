@@ -709,6 +709,41 @@ namespace OpenWeatherAPI.Tests
             Assert.Greater(service.weatherDTO.ReportHeader.Content_Type.Length, 0);
         }
 
+        [Test]
+        public void Header_Server_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Server);
+        }
+
+        [Test]
+        public void Header_Server_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.ReportHeader.Server);
+        }
+
+        [Test]
+        public void Header_Server_Value_Test01()
+        {
+            Assert.AreEqual("openresty", service.weatherDTO.ReportHeader.Server);
+        }
+
+        [Test]
+        public void Header_Server_Value_Test02()
+        {
+            Assert.AreNotEqual("Microsoft-IIS/8,5", service.weatherDTO.ReportHeader.Server);
+        }
+
+        [Test]
+        public void Header_Server_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Server.Length, 0);
+        }
+
+        [Test]
+        public void Header_Date_Format_Test01()
+        {
+
+        }
 
     }
 }
