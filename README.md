@@ -30,3 +30,7 @@ This repository was created to submit my Open Weather API test project.
 
 ## Possible Test that would be failed but is reasonable
 * Attributes that is under Rain or Snow in the result as they may not be included in the result because the weather is not rainning or snowwing
+
+## Test that could not perform because of unknown boundery
+* Length of the string
+  * There are no documentations about the maximum number of character can be return in a string attribute, therefore the test can only be tested for Greater than 0 but not Less than a certain value
