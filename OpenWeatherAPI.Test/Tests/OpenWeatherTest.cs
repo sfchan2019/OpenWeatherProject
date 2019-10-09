@@ -240,7 +240,7 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Sys_Country_Length_Test()
         {
-            Assert.Greater(service.weatherDTO.WeatherReport.sys.country, 0);
+            Assert.Greater(service.weatherDTO.WeatherReport.sys.country.Length, 0);
         }
 
         [Test]
