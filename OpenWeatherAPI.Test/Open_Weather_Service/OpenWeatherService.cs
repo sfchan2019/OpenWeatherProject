@@ -25,7 +25,7 @@ namespace OpenWeatherAPI.Open_Weather_Service
         {
             weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
             weatherReportJson = JObject.Parse(openWeatherCallManager.GetWeatherForecast());
-            weatherDTO.ParseWeatherReportHeader(openWeatherCallManager.headers);
+            //weatherDTO.ParseWeatherReportHeader(openWeatherCallManager.headers);
         }
     }
 }
