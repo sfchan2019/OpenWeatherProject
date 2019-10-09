@@ -13,14 +13,14 @@ namespace OpenWeatherAPI.Test.Open_Weather_Service
     class OpenWeatherService
     {
         //DTO
-        OpenWeatherDTO openWeatherDTO = new OpenWeatherDTO();
+        WeatherDTO weatherDTO = new WeatherDTO();
         //Call Manager
         OpenWeatherCallManager openWeatherCallManager = new OpenWeatherCallManager();
         //JObject
         JObject weatherResultJson;
         public OpenWeatherService()
         {
-            openWeatherDTO.DeserializeWeatherForecast(openWeatherCallManager.GetWeatherForecast());
+            weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
         }
 
 
