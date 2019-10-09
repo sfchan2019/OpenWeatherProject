@@ -18,7 +18,7 @@ namespace OpenWeatherAPI.Open_Weather_Service
         //Call Manager
         OpenWeatherCallManager openWeatherCallManager = new OpenWeatherCallManager();
         //JObject
-        public JObject weatherReportJson;
+        JObject weatherReportJson;
         public OpenWeatherService()
         {
             weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast());
