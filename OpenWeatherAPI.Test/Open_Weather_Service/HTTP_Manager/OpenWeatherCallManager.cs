@@ -16,41 +16,9 @@ namespace OpenWeatherAPI.Open_Weather_Service.HTTP_Manager
             client = new RestClient(OpenWeatherConfig.BaseUrl);
         }
 
-        public string GetWeatherForecast(string op, string z, string x, string y, string date)
-        {
-            string param = String.Format("/weather/{{0}}/{{1}}/{{2}}/{{3}}/{{4}}", op, z, x, y, date);
-            RestRequest request = new RestRequest(param + OpenWeatherConfig.ApiUrlMod + OpenWeatherConfig.ApiKey);
-            IRestResponse response = client.Execute(request, Method.GET);
-            return response.Content;
-        }
-
-        public string GetWeatherForecast(string z, string x, string y, string date)
-        {
-            string param = String.Format("/weather/TA2/{{0}}/{{1}}/{{2}}/{{3}}", z, x, y, date);
-            RestRequest request = new RestRequest(param + OpenWeatherConfig.ApiUrlMod + OpenWeatherConfig.ApiKey);
-            IRestResponse response = client.Execute(request, Method.GET);
-            return response.Content;
-        }
-
-        public string GetCurrentWeatherForecast(string op, string z, string x, string y)
-        {
-            string param = String.Format("/weather/{{0}}/{{1}}/{{2}}/{{3}}/{{4}}", op, z, x, y);
-            RestRequest request = new RestRequest(param + OpenWeatherConfig.ApiUrlMod + OpenWeatherConfig.ApiKey);
-            IRestResponse response = client.Execute(request, Method.GET);
-            return response.Content;
-        }
-
-        public string GetCurrentWeatherForecast(string z, string x, string y)
-        {
-            string param = String.Format("/weather/TA2/{{0}}/{{1}}/{{2}}/{{3}}", z, x, y);
-            RestRequest request = new RestRequest(param + OpenWeatherConfig.ApiUrlMod + OpenWeatherConfig.ApiKey);
-            IRestResponse response = client.Execute(request, Method.GET);
-            return response.Content;
-        }
-
         public string GetWeatherForecast()
         {
-            string param = String.Format("/weather/TA2/{{0}}/{{1}}/{{2}}/{{3}}");
+            string param = String.Format("/weather?q={0},{1}&", "London", "uk");
             RestRequest request = new RestRequest(param + OpenWeatherConfig.ApiUrlMod + OpenWeatherConfig.ApiKey);
             IRestResponse response = client.Execute(request, Method.GET);
             return response.Content;
