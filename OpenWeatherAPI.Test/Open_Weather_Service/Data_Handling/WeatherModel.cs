@@ -9,4 +9,9 @@ namespace OpenWeatherAPI.Test.Open_Weather_Service.Data_Handling
     class WeatherModel
     {
     }
+
+    class WeatherReportRoot
+    {
+
+    }
 }
