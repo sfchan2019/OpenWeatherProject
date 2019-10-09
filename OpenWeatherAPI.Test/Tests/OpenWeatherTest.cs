@@ -152,42 +152,69 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Sys_Test()
+        public void Attribute_Sys_Country_DataType_Test()
         {
-        }
-
-        //[Test]
-        //public void Attribute_Sys_Test()
-        //{
-        //}
-
-        //[Test]
-        //public void Attribute_Sys_Test()
-        //{
-        //}
-
-        [Test]
-        public void Attribute_Timezone_Test()
-        {
-
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.sys.country);
         }
 
         [Test]
-        public void Attribute_Id_Test()
+        public void Attribute_Sys_Sunrise_DataType_Test()
         {
-
+            Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.sunrise);
         }
 
         [Test]
-        public void Attribute_Name_Test()
+        public void Attribute_Sys_Sunset_DataType_Test()
         {
-
+            Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.sunset);
         }
 
         [Test]
-        public void Attribute_Cod_Test()
+        public void Attribute_Rain_1h_DataType_Test()
         {
+            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.rain.oneHour);
+        }
 
+        [Test]
+        public void Attribute_Rain_3h_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.rain.threeHour);
+        }
+
+        [Test]
+        public void Attribute_Snow_1h_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.snow.oneHour);
+        }
+
+        [Test]
+        public void Attribute_Snow_3h_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.snow.threeHour);
+        }
+
+        [Test]
+        public void Attribute_Timezone_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.timezone);
+        }
+
+        [Test]
+        public void Attribute_Id_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.id);
+        }
+
+        [Test]
+        public void Attribute_Name_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.name);
+        }
+
+        [Test]
+        public void Attribute_Cod_DataType_Test()
+        {
+            Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.cod);
         }
     }
 }

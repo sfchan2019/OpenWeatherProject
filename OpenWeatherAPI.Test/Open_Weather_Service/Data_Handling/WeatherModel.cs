@@ -47,10 +47,15 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
         [DataMember(Name = "3h")]
         public double threeHour { get; set; }
     }
+
+    [DataContract]
     class Snow
     {
-        //public double 1h { get; set; }
-        //public double 3h { get; set; }
+        [DataMember(Name = "1h")]
+        public double oneHour { get; set; }
+
+        [DataMember(Name = "3h")]
+        public double threeHour { get; set; }
     }
 
     class Clouds
@@ -77,6 +82,7 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
         public int visibility { get; set; }
         public Wind wind { get; set; }
         public Rain rain { get; set; }
+        public Snow snow { get; set; }
         public Clouds clouds { get; set; }
         public int dt { get; set; }
         public Sys sys { get; set; }
