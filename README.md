@@ -25,3 +25,6 @@ This repository was created to submit my Open Weather API test project.
 * Format test
   * The attribute weather.icon should be in the format two digit number and an alphabetic character (01a)
   * The header Date should be in the format (Wed, 09 Oct 2019 10:57:28 GMT), short form of the day of the week, two digit number, short form of the month, year in four digit number, time in hh:mm:ss, name of the timezone. 
+
+## Possible Test that would be failed but is reasonable
+* Attributes that is under Rain or Snow in the result as they may not be included in the result because the weather is not rainning or snowwing
