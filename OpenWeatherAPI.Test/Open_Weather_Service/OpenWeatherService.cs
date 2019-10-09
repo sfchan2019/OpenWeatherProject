@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenWeatherAPI.Open_Weather_Service.Data_Handling;
 using OpenWeatherAPI.Open_Weather_Service.HTTP_Manager;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using RestSharp;
+using System.Net;
 
 
 namespace OpenWeatherAPI.Open_Weather_Service
@@ -18,14 +17,15 @@ namespace OpenWeatherAPI.Open_Weather_Service
         public WeatherDTO weatherDTO = new WeatherDTO();
         //Call Manager
         OpenWeatherCallManager openWeatherCallManager = new OpenWeatherCallManager();
-        //JObject
-        JObject weatherReportJson;
+        //Status
+        public HttpStatusCode statusCode;
+        
 
         public OpenWeatherService()
         {
             weatherDTO.DeserializeWeatherReport(openWeatherCallManager.GetWeatherForecast().Content);
-            //weatherReportJson = JObject.Parse(openWeatherCallManager.GetWeatherForecast().Content);
             weatherDTO.ParseWeatherReportHeader(openWeatherCallManager.GetWeatherForecast().Headers);
+            statusCode = openWeatherCallManager.GetWeatherForecast().StatusCode;
         }
     }
 }

@@ -103,6 +103,5 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
         public string Content_Type { get; set; }
         public string Date { get; set; }
         public string Server { get; set; }
-
     }
 }

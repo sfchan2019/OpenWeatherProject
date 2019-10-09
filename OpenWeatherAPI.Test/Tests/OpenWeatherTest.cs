@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenWeatherAPI.Open_Weather_Service;
+using System.Text.RegularExpressions;
+using System.Net;
 
 namespace OpenWeatherAPI.Tests
 {
@@ -310,6 +312,7 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Clouds_All_DataType_Test01()
         {
+
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.clouds.all);
         }
 
@@ -424,49 +427,81 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Rain_1h_DataType_Test01()
         {
-            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.rain.oneHour);
+            //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.rain != null)
+            {
+                Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.rain.oneHour);
+            }
         }
 
         [Test]
         public void Attribute_Rain_1h_DataType_Test02()
         {
-            Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.WeatherReport.rain.oneHour);
+            //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.rain != null)
+            {
+                Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.WeatherReport.rain.oneHour);
+            }
         }
 
         [Test]
         public void Attribute_Rain_3h_DataType_Test01()
         {
-            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.rain.threeHour);
+            //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.rain != null)
+            {
+                Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.rain.threeHour);
+            }
         }
 
         [Test]
         public void Attribute_Rain_3h_DataType_Test02()
         {
-            Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.rain.threeHour);
+            //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.rain != null)
+            {
+                Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.rain.threeHour);
+            }
         }
 
         [Test]
         public void Attribute_Snow_1h_DataType_Test01()
         {
-            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.snow.oneHour);
+            //Snow maybe null if weather is not snow. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.snow != null)
+            {
+                Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.snow.oneHour);
+            }
         }
 
         [Test]
         public void Attribute_Snow_1h_DataType_Test02()
         {
-            Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.snow.oneHour);
+            //Snow maybe null if weather is not snow. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.snow != null)
+            {
+                Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.snow.oneHour);
+            }
         }
 
         [Test]
         public void Attribute_Snow_3h_DataType_Test01()
         {
-            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.snow.threeHour);
+            //Snow maybe null if weather is not snow. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.snow != null)
+            {
+                Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.snow.threeHour);
+            }
         }
 
         [Test]
         public void Attribute_Snow_3h_DataType_Test02()
         {
-            Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.snow.threeHour);
+            //Snow maybe null if weather is not snow. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.snow != null)
+            {
+                Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.snow.threeHour);
+            }
         }
 
         [Test]
@@ -740,10 +775,41 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Header_Date_Format_Test01()
+        public void Header_Date_DataType_Test01()
         {
-
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Date);
         }
 
+        [Test]
+        public void Header_Date_DateType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(DateTime), service.weatherDTO.ReportHeader.Date);
+        }
+
+        [Test]
+        public void Header_Date_Format_Test01()
+        {
+            //format: Web dd OCT yyyy hh:mm:ss UDA
+            string format = "([A-Z][a-z][a-z],) ([0-9][0-9])..([A-z])..[0-2][0-9][0-9][0-9] [0-2][0-9]:[0-6][0-9]:[0-6][0-9]..[A-Z][A-Z]";
+            Assert.AreEqual(true, Regex.Match(service.weatherDTO.ReportHeader.Date, format).Success);
+        }
+
+        [Test]
+        public void Header_Date_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Date.Length, 0);
+        }
+
+        [Test]
+        public void Response_Status_Test01()
+        {
+            Assert.AreEqual(HttpStatusCode.OK, service.statusCode);
+        }
+
+        [Test]
+        public void Response_Status_Test02()
+        {
+            Assert.AreNotEqual(HttpStatusCode.NotFound, service.statusCode);
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
     {
         public WeatherReportRoot WeatherReport { get; set; }
         public WeatherReportHeader ReportHeader { get; set; }
+
         public void DeserializeWeatherReport(string weatherReportResponse)
         {
             WeatherReport = JsonConvert.DeserializeObject<WeatherReportRoot>(weatherReportResponse);
