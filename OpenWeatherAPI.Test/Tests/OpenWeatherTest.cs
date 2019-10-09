@@ -55,19 +55,13 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Weather_Id_DataType_Test02()
         {
-            Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.weather[0].id);
+            Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.weather[0].id);
         }
 
         [Test]
         public void Attribute_Weather_Id_Range_Test01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.weather[0].id, 0);
-        }
-
-        [Test]
-        public void Attribute_Weather_Id_Range_Test02()
-        {
-            Assert.Less(service.weatherDTO.WeatherReport.weather[0].id, 0);
         }
 
         [Test]
@@ -86,12 +80,6 @@ namespace OpenWeatherAPI.Tests
         public void Attribute_Weather_Main_Length_Test01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.weather[0].main.Length, 0);
-        }
-
-        [Test]
-        public void Attribute_Weather_Main_Length_Test02()
-        {
-            Assert.LessOrEqual(service.weatherDTO.WeatherReport.weather[0].main.Length, 0);
         }
 
         [Test]
@@ -134,12 +122,6 @@ namespace OpenWeatherAPI.Tests
         public void Attribute_Weather_Icon_Length_Test01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.weather[0].icon.Length, 0);
-        }
-
-        [Test]
-        public void Attribute_Weather_Icon_Length_Test02()
-        {
-            Assert.Less(service.weatherDTO.WeatherReport.weather[0].icon.Length, 0);
         }
 
         [Test]
