@@ -112,19 +112,25 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Wind_Speed_Test()
         {
-            Assert.AreEqual((6.2).GetType(), service.weatherDTO.WeatherReport.wind.speed);
+            Assert.AreEqual((6.2).GetType(), service.weatherDTO.WeatherReport.wind.speed.GetType());
         }
 
         [Test]
-        public void Attribute_Clouds_Test()
+        public void Attribute_Wind_Deg_Test()
         {
+            Assert.AreEqual(260.GetType(), service.weatherDTO.WeatherReport.wind.deg.GetType());
+        }
 
+        [Test]
+        public void Attribute_Clouds_All_Test()
+        {
+            Assert.AreEqual(typeof(int), service.weatherDTO.WeatherReport.clouds.all.GetType());
         }
 
         [Test]
         public void Attribute_Dt_Test()
         {
-
+            Assert.AreEqual(typeof(int), service.weatherDTO.WeatherReport.dt.GetType());
         }
 
         [Test]
