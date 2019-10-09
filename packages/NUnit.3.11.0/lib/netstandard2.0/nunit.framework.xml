@@ -3307,18 +3307,6 @@
             <param name="expression">A Constraint expression to be applied</param>
             <param name="getExceptionMessage">A function to build the message included with the Exception</param>
         </member>
-        <member name="T:NUnit.Framework.ApartmentAttribute">
-            <summary>
-            Marks a test as needing to be run in a particular threading apartment state. This will cause it
-            to run in a separate thread if necessary.
-            </summary>
-        </member>
-        <member name="M:NUnit.Framework.ApartmentAttribute.#ctor(System.Threading.ApartmentState)">
-            <summary>
-            Construct an ApartmentAttribute
-            </summary>
-            <param name="apartmentState">The apartment state that this test must be run under. You must pass in a valid apartment state.</param>
-        </member>
         <member name="T:NUnit.Framework.AuthorAttribute">
             <summary>
             Provides the author of a test or test fixture. 
@@ -4066,11 +4054,6 @@
             Construct a RequiresThreadAttribute
             </summary>
         </member>
-        <member name="M:NUnit.Framework.RequiresThreadAttribute.#ctor(System.Threading.ApartmentState)">
-            <summary>
-            Construct a RequiresThreadAttribute, specifying the apartment
-            </summary>
-        </member>
         <member name="T:NUnit.Framework.RetryAttribute">
             <summary>
             Specifies that a test method should be rerun on failure up to the specified 
@@ -4712,19 +4695,6 @@
             <summary>
             Construct the attribute, specifying a combining strategy and source of parameter data.
             </summary>
-        </member>
-        <member name="T:NUnit.Framework.TimeoutAttribute">
-            <summary>
-            Applies a timeout in milliseconds to a test. 
-            When applied to a method, the test is cancelled if the timeout is exceeded. 
-            When applied to a class or assembly, the default timeout is set for all contained test methods.
-            </summary>
-        </member>
-        <member name="M:NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)">
-            <summary>
-            Construct a TimeoutAttribute given a time in milliseconds
-            </summary>
-            <param name="timeout">The timeout value in milliseconds</param>
         </member>
         <member name="T:NUnit.Framework.ValuesAttribute">
             <summary>
@@ -12384,8 +12354,7 @@
         </member>
         <member name="M:NUnit.Framework.Internal.AssemblyHelper.Load(System.String)">
             <summary>
-            Loads an assembly given a string, which may be the
-            path to the assembly or the AssemblyName
+            Loads an assembly given a string, which is the AssemblyName
             </summary>
         </member>
         <member name="M:NUnit.Framework.Internal.AssemblyHelper.GetAssemblyPathFromCodeBase(System.String)">
@@ -13287,20 +13256,6 @@
             Constructs a TheoryResultCommand 
             </summary>
             <param name="command">The command to be wrapped by this one</param>
-        </member>
-        <member name="T:NUnit.Framework.Internal.Commands.TimeoutCommand">
-            <summary>
-            TimeoutCommand creates a timer in order to cancel
-            a test if it exceeds a specified time and adjusts
-            the test result if it did time out.
-            </summary>
-        </member>
-        <member name="M:NUnit.Framework.Internal.Commands.TimeoutCommand.#ctor(NUnit.Framework.Internal.Commands.TestCommand,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:NUnit.Framework.Internal.Commands.TimeoutCommand"/> class.
-            </summary>
-            <param name="innerCommand">The inner command</param>
-            <param name="timeout">Timeout value</param>
         </member>
         <member name="T:NUnit.Framework.Internal.ConstraintUtils">
             <summary>
@@ -14399,12 +14354,6 @@
             <param name="resultState">The new ResultState</param>
             <param name="message">The new message</param>
         </member>
-        <member name="M:NUnit.Framework.Internal.Execution.WorkItem.GetTargetApartment(NUnit.Framework.Interfaces.ITest)">
-            <summary>
-            Recursively walks up the test hierarchy to see if the
-            <see cref="T:System.Threading.ApartmentState"/> has been set on any of the parent tests.
-            </summary>
-        </member>
         <member name="T:NUnit.Framework.Internal.Execution.WorkItemBuilder">
             <summary>
             WorkItemBuilder class knows how to build a tree of work items from a tree of tests
@@ -14455,13 +14404,12 @@
             has been satisfied.
             </summary>
         </member>
-        <member name="M:NUnit.Framework.Internal.Execution.WorkItemQueue.#ctor(System.String,System.Boolean,System.Threading.ApartmentState)">
+        <member name="M:NUnit.Framework.Internal.Execution.WorkItemQueue.#ctor(System.String,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:NUnit.Framework.Internal.Execution.WorkItemQueue"/> class.
             </summary>
             <param name="name">The name of the queue.</param>
             <param name="isParallel">Flag indicating whether this is a parallel queue</param>
-            <param name="apartment">ApartmentState to use for items on this queue</param>
         </member>
         <member name="P:NUnit.Framework.Internal.Execution.WorkItemQueue.Name">
             <summary>
@@ -14471,11 +14419,6 @@
         <member name="P:NUnit.Framework.Internal.Execution.WorkItemQueue.IsParallelQueue">
             <summary>
             Gets a flag indicating whether this queue is used for parallel execution
-            </summary>
-        </member>
-        <member name="P:NUnit.Framework.Internal.Execution.WorkItemQueue.TargetApartment">
-            <summary>
-            Gets the target ApartmentState for work items on this queue
             </summary>
         </member>
         <member name="P:NUnit.Framework.Internal.Execution.WorkItemQueue.ItemsProcessed">
@@ -18580,55 +18523,6 @@
             for working with threads.
             </summary>
         </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.Delay(System.Int32,System.Threading.WaitCallback,System.Object)">
-            <summary>
-            Pre-Task compatibility
-            </summary>
-        </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.Abort(System.Threading.Thread,System.Int32)">
-            <summary>
-            Abort a thread, helping to dislodging it if it is blocked in native code
-            </summary>
-            <param name="thread">The thread to abort</param>
-            <param name="nativeId">The native thread id (if known), otherwise 0.
-            If provided, allows the thread to be killed if it's in a message pump native blocking wait.
-            This must have previously been captured by calling <see cref="M:NUnit.Framework.Internal.ThreadUtility.GetCurrentThreadNativeId"/> from the running thread itself.</param>
-        </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.Kill(System.Threading.Thread,System.Int32)">
-            <summary>
-            Do our best to kill a thread
-            </summary>
-            <param name="thread">The thread to kill</param>
-            <param name="nativeId">The native thread id (if known), otherwise 0.
-            If provided, allows the thread to be killed if it's in a message pump native blocking wait.
-            This must have previously been captured by calling <see cref="M:NUnit.Framework.Internal.ThreadUtility.GetCurrentThreadNativeId"/> from the running thread itself.</param>
-        </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.Kill(System.Threading.Thread,System.Object,System.Int32)">
-            <summary>
-            Do our best to kill a thread, passing state info
-            </summary>
-            <param name="thread">The thread to kill</param>
-            <param name="stateInfo">Info for the ThreadAbortException handler</param>
-            <param name="nativeId">The native thread id (if known), otherwise 0.
-            If provided, allows the thread to be killed if it's in a message pump native blocking wait.
-            This must have previously been captured by calling <see cref="M:NUnit.Framework.Internal.ThreadUtility.GetCurrentThreadNativeId"/> from the running thread itself.</param>
-        </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.DislodgeThreadInNativeMessageWait(System.Threading.Thread,System.Int32)">
-            <summary>
-            Schedule a threadpool thread to check on the aborting thread in case it's in a message pump native blocking wait
-            </summary>
-        </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.GetCurrentThreadNativeId">
-            <summary>
-            Captures the current thread's native id. If provided to <see cref="M:NUnit.Framework.Internal.ThreadUtility.Kill(System.Threading.Thread,System.Int32)"/> later, allows the thread to be killed if it's in a message pump native blocking wait.
-            </summary>
-        </member>
-        <member name="M:NUnit.Framework.Internal.ThreadUtility.PostThreadCloseMessage(System.Int32)">
-            <summary>
-            Sends a message to the thread to dislodge it from native code and allow a return to managed code, where a ThreadAbortException can be generated.
-            The message is meaningless (WM_CLOSE without a window handle) but it will end any blocking message wait.
-            </summary>
-        </member>
         <member name="T:NUnit.Framework.Internal.TypeHelper">
             <summary>
             TypeHelper provides static methods that operate on Types.
@@ -20513,6 +20407,24 @@
             <summary>
             Obtains a lifetime service object to control the lifetime policy for this instance.
             </summary>
+        </member>
+        <member name="T:System.Web.UI.ICallbackEventHandler">
+            <summary>
+            A shim of the .NET interface for platforms that do not support it.
+            Used to indicate that a control can be the target of a callback event on the server.
+            </summary>
+        </member>
+        <member name="M:System.Web.UI.ICallbackEventHandler.RaiseCallbackEvent(System.String)">
+            <summary>
+            Processes a callback event that targets a control.
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="M:System.Web.UI.ICallbackEventHandler.GetCallbackResult">
+            <summary>
+            Returns the results of a callback event that targets a control.
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

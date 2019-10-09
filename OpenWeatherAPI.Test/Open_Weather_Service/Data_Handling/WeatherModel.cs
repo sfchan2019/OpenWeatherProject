@@ -92,17 +92,17 @@ namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
         public int cod { get; set; }
     }
 
-    //class WeatherReportHeader
-    //{
-    //    public string Connection { get; set; }
-    //    public string X_Cache_Key { get; set; }
-    //    public string Access_Control_Allow_Origin { get; set; }
-    //    public string Access_Control_Allow_Credentials { get; set; }
-    //    public string Access_Control_Allow_Methods { get; set; }
-    //    public int? Content_Length { get; set; }
-    //    public string Content_Type { get; set; }
-    //    public string Date { get; set; }
-    //    public string Server { get; set; }
+    class WeatherReportHeader
+    {
+        public string Connection { get; set; }
+        public string X_Cache_Key { get; set; }
+        public string Access_Control_Allow_Origin { get; set; }
+        public bool Access_Control_Allow_Credentials { get; set; }
+        public string Access_Control_Allow_Methods { get; set; }
+        public int? Content_Length { get; set; }
+        public string Content_Type { get; set; }
+        public string Date { get; set; }
+        public string Server { get; set; }
 
-    //}
+    }
 }

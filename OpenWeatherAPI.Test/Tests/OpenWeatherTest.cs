@@ -20,16 +20,12 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Coord_Lon_DataType_Test01()
         {
-            //Becaue the return values change everyday, the test with hardcoded value may not pass on the next day, Therefore
-            //Test the return values are the same data type
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.coord.lon);
         }
 
         [Test]
         public void Attribute_Coord_Lon_DataType_Test02()
         {
-            //Becaue the return values change everyday, the test with hardcoded value may not pass on the next day, Therefore
-            //Test the return values are the same data type
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.coord.lon);
         }
 
@@ -152,6 +148,12 @@ namespace OpenWeatherAPI.Tests
         public void Attribute_Main_Temp_Range_Test01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.main.temp, service.weatherDTO.WeatherReport.main.temp_min);
+        }
+
+        [Test]
+        public void Attribute_Main_Temp_Range_Test02()
+        {
+            Assert.LessOrEqual(service.weatherDTO.WeatherReport.main.temp, service.weatherDTO.WeatherReport.main.temp_max);
         }
 
         [Test]
@@ -440,7 +442,7 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Rain_3h_DataType_Test02()
         {
-            Assert.IsNotInstanceOf(null, service.weatherDTO.WeatherReport.rain.threeHour);
+            Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.rain.threeHour);
         }
 
         [Test]
@@ -464,7 +466,7 @@ namespace OpenWeatherAPI.Tests
         [Test]
         public void Attribute_Snow_3h_DataType_Test02()
         {
-            Assert.IsNotInstanceOf(null, service.weatherDTO.WeatherReport.snow.threeHour);
+            Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.snow.threeHour);
         }
 
         [Test]
@@ -525,6 +527,72 @@ namespace OpenWeatherAPI.Tests
         public void Attribute_Cod_DataType_Test02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.WeatherReport.cod);
+        }
+
+        [Test]
+        public void Header_Connection_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Connection);
+        }
+
+        [Test]
+        public void Header_Connection_Value_Test01()
+        {
+            Assert.AreEqual("keep-alive", service.weatherDTO.ReportHeader.Connection);
+        }
+
+        [Test]
+        public void Header_Connection_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Connection.Length, 0);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Origin_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Origin_Value_Test01()
+        {
+            Assert.AreEqual("*", service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Origin_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Access_Control_Allow_Origin.Length, 0);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Credentials_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(bool), service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Credentials_Value_Test01()
+        {
+            Assert.AreEqual(true, service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Methods_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Methods_Value_Test01()
+        {
+            Assert.AreEqual("GET, POST", service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Methods_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Access_Control_Allow_Methods.Length, 0);
         }
     }
 }
