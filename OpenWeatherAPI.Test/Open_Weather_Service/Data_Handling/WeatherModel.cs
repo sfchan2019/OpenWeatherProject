@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenWeatherAPI.Test.Open_Weather_Service.Data_Handling
+namespace OpenWeatherAPI.Open_Weather_Service.Data_Handling
 {
     class Coord
     {

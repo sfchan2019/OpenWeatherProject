@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using RestSharp;
 
-namespace OpenWeatherAPI.Test.Open_Weather_Service.HTTP_Manager
+namespace OpenWeatherAPI.Open_Weather_Service.HTTP_Manager
 {
     class OpenWeatherCallManager
     {

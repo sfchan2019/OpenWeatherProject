@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace OpenWeatherAPI.Test.Tests
+namespace OpenWeatherAPI.Tests
 {
     [TestFixture]
     class OpenWeatherTest

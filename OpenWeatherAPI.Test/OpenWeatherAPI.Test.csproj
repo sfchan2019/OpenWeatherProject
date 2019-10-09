@@ -9,8 +9,8 @@
     <ProjectGuid>{51FB5920-0F2B-42AB-970D-93836FFE89BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenWeatherAPI.Test</RootNamespace>
-    <AssemblyName>OpenWeatherAPI.Test</AssemblyName>
+    <RootNamespace>OpenWeatherAPI</RootNamespace>
+    <AssemblyName>OpenWeatherAPI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OpenWeatherConfig.cs" />
-    <Compile Include="Open_Weather_Service\Data_Handling\OpenWeatherDTO.cs" />
+    <Compile Include="Open_Weather_Service\Data_Handling\WeatherDTO.cs" />
     <Compile Include="Open_Weather_Service\Data_Handling\WeatherModel.cs" />
     <Compile Include="Open_Weather_Service\HTTP_Manager\OpenWeatherCallManager.cs" />
     <Compile Include="Open_Weather_Service\OpenWeatherService.cs" />

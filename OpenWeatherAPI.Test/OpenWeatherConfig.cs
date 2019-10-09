@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace OpenWeatherAPI.Test
+namespace OpenWeatherAPI
 {
     public static class OpenWeatherConfig
     {
