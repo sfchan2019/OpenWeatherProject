@@ -536,9 +536,21 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Header_Connection_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.ReportHeader.Connection);
+        }
+
+        [Test]
         public void Header_Connection_Value_Test01()
         {
             Assert.AreEqual("keep-alive", service.weatherDTO.ReportHeader.Connection);
+        }
+
+        [Test]
+        public void Header_Connection_Value_Test02()
+        {
+            Assert.AreNotEqual("alive", service.weatherDTO.ReportHeader.Connection);
         }
 
         [Test]
@@ -554,9 +566,21 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Header_Access_Control_Allow_Origin_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
+        }
+
+        [Test]
         public void Header_Access_Control_Allow_Origin_Value_Test01()
         {
             Assert.AreEqual("*", service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Origin_Value_Test02()
+        {
+            Assert.AreNotEqual("All", service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
         }
 
         [Test]
@@ -572,9 +596,21 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Header_Access_Control_Allow_Credentials_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
+        }
+
+        [Test]
         public void Header_Access_Control_Allow_Credentials_Value_Test01()
         {
             Assert.AreEqual(true, service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Credentials_Value_Test02()
+        {
+            Assert.AreNotEqual(false, service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
         }
 
         [Test]
@@ -584,9 +620,21 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Header_Access_Control_Allow_Methods_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
+        }
+
+        [Test]
         public void Header_Access_Control_Allow_Methods_Value_Test01()
         {
             Assert.AreEqual("GET, POST", service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
+        }
+
+        [Test]
+        public void Header_Access_Control_Allow_Methods_Value_Test02()
+        {
+            Assert.AreNotEqual("GET", service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
         }
 
         [Test]
@@ -594,5 +642,73 @@ namespace OpenWeatherAPI.Tests
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Access_Control_Allow_Methods.Length, 0);
         }
+
+        [Test]
+        public void Header_X_Cache_Key_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.X_Cache_Key);
+        }
+
+        [Test]
+        public void Header_X_Cache_Key_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.ReportHeader.X_Cache_Key);
+        }
+
+        [Test]
+        public void Header_X_Cache_Key_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.X_Cache_Key.Length, 0);
+        }
+
+        [Test]
+        public void Header_Content_Length_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(int), service.weatherDTO.ReportHeader.Content_Length);
+        }
+
+        [Test]
+        public void Header_Content_Length_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Content_Length);
+        }
+
+        [Test]
+        public void Header_Content_Length_Range_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Content_Length, 0);
+        }
+
+        [Test]
+        public void Header_Content_Type_DataType_Test01()
+        {
+            Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Content_Type);
+        }
+
+        [Test]
+        public void Header_Content_Type_DataType_Test02()
+        {
+            Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.ReportHeader.Content_Type);
+        }
+
+        [Test]
+        public void Header_Content_Type_Value_Test01()
+        {
+            Assert.AreEqual("application/json; charset=utf-8", service.weatherDTO.ReportHeader.Content_Type);
+        }
+
+        [Test]
+        public void Header_Content_Type_Value_Test02()
+        {
+            Assert.AreNotEqual("application/xml;charset=utf-8", service.weatherDTO.ReportHeader.Content_Type);
+        }
+
+        [Test]
+        public void Header_Content_Type_Length_Test01()
+        {
+            Assert.Greater(service.weatherDTO.ReportHeader.Content_Type.Length, 0);
+        }
+
+
     }
 }
