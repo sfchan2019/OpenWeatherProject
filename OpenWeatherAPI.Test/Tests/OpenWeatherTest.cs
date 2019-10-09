@@ -165,9 +165,21 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Attribute_Visibility_Range_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.visibility, 0);
+        }
+
+        [Test]
         public void Attribute_Wind_Speed_DataType_Test()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.wind.speed);
+        }
+
+        [Test]
+        public void Attribute_Wind_Speed_Range_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.wind.speed, 0);
         }
 
         [Test]
@@ -175,6 +187,19 @@ namespace OpenWeatherAPI.Tests
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.wind.deg);
         }
+
+        [Test]
+        public void Attribute_Wind_Deg_Range_Test01()
+        {
+            Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.wind.deg, 0);
+        }
+
+        [Test]
+        public void Attribute_Wind_Deg_Range_Test02()
+        {
+            Assert.LessOrEqual(service.weatherDTO.WeatherReport.wind.deg, 360);
+        }
+
 
         [Test]
         public void Attribute_Clouds_All_DataType_Test()
@@ -213,15 +238,33 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Attribute_Sys_Country_Length_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.sys.country, 0);
+        }
+
+        [Test]
         public void Attribute_Sys_Sunrise_DataType_Test()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.sunrise);
         }
 
         [Test]
+        public void Attribute_Sys_Sunrise_Range_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.sys.sunrise, 0);
+        }
+
+        [Test]
         public void Attribute_Sys_Sunset_DataType_Test()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.sunset);
+        }
+
+        [Test]
+        public void Attribute_Sys_Sunset_Range_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.sys.sunset, 0);
         }
 
         [Test]
@@ -261,9 +304,21 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Attribute_Id_Range_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.id, 0);
+        }
+
+        [Test]
         public void Attribute_Name_DataType_Test()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.name);
+        }
+
+        [Test]
+        public void Attribute_Name_Length_Test()
+        {
+            Assert.Greater(service.weatherDTO.WeatherReport.name.Length, 0);
         }
 
         [Test]
