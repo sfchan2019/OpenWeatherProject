@@ -1,7 +1,11 @@
 # Open Weather API Test Project
 This repository was created to submit my Open Weather API test project.
 
-## Testing for Json Attribute
+## Testing for Response Status
+* Test that the status should be an OK status
+* Test that the status should not be a Not Found status
+
+## Testing for Json Attributes
 * For each attribute in the result, test if the attribute has the correct data type
 * For each attribute that is a numberical value
   * If the attribute is not an internal parameters from the API, test for the value is
@@ -24,14 +28,6 @@ This repository was created to submit my Open Weather API test project.
     * i.e. Content-Type should always be "application/json; charset=utf-8"
   * For each header that return a numerical value 
     * Test that the value is Greater than 0
-
-## Posible Tests should be carried out
-* Format Test
-  * The attribute weather.icon should be in the format two digit number and an alphabetic character (01a)
-  * The header Date should be in the format (Wed, 09 Oct 2019 10:57:28 GMT), short form of the day of the week, two digit number, short form of the month, year in four digit number, time in hh:mm:ss, name of the timezone
-
-## Possible Test that would be failed but is reasonable
-* Attributes that is under Cloud, Rain, or Snow in the result as they may not be included in the result because the existence of these attributes are based on the weather
 
 ## Test that could not perform because of unknown boundery
 * There are documentations missing about the boundary of attribute, therefore some boundary test could not be done
