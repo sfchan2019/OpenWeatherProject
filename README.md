@@ -34,7 +34,7 @@ This repository was created to submit my Open Weather API test project.
 * Attributes that is under Cloud, Rain, or Snow in the result as they may not be included in the result because the existence of these attributes are based on the weather
 
 ## Test that could not perform because of unknown boundery
-* There are documentations missing about the boundary of attribute, therefore some boundary could not be carried out
+* There are documentations missing about the boundary of attribute, therefore some boundary test could not be done
   * Length of the string
     * No specification of maximum number of character in the string
   * Mininum numerical value
