@@ -445,6 +445,16 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Attribute_Rain_1h_Range_Test01()
+        {
+            //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.rain != null)
+            {
+                Assert.Greater(service.weatherDTO.WeatherReport.rain.oneHour, 0.0);
+            }
+        }
+
+        [Test]
         public void Attribute_Rain_3h_DataType_Test01()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
@@ -461,6 +471,16 @@ namespace OpenWeatherAPI.Tests
             if (service.weatherDTO.WeatherReport.rain != null)
             {
                 Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.rain.threeHour);
+            }
+        }
+
+        [Test]
+        public void Attribute_Rain_3h_Rnage_Test01()
+        {
+            //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.rain != null)
+            {
+                Assert.Greater(service.weatherDTO.WeatherReport.rain.threeHour, 0.0);
             }
         }
 
@@ -485,6 +505,16 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
+        public void Attribute_Snow_1h_Range_Test01()
+        {
+            //Snow maybe null if weather is not snow. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.snow != null)
+            {
+                Assert.Greater(service.weatherDTO.WeatherReport.snow.oneHour, 0.0);
+            }
+        }
+
+        [Test]
         public void Attribute_Snow_3h_DataType_Test01()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
@@ -501,6 +531,16 @@ namespace OpenWeatherAPI.Tests
             if (service.weatherDTO.WeatherReport.snow != null)
             {
                 Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.snow.threeHour);
+            }
+        }
+
+        [Test]
+        public void Attribute_Snow_3h_Range_Test01()
+        {
+            //Snow maybe null if weather is not snow. The attribute will not be contained in the result
+            if (service.weatherDTO.WeatherReport.snow != null)
+            {
+                Assert.Greater(service.weatherDTO.WeatherReport.snow.threeHour, 0.0);
             }
         }
 
