@@ -1,6 +1,12 @@
 # Open Weather API Test Project
 This repository was created to submit my Open Weather API test project.
 
+## Majority of the Tests
+* Test the return value is in the correct data type
+* Test the return value is in the correct range
+* Test the return value is not empty
+* Test the return value is matching the expected value
+
 ## Testing for Response Status
 * Test that the status should be an OK status
 * Test that the status should not be a Not Found status
