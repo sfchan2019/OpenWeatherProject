@@ -3,16 +3,16 @@ This repository was created to submit my Open Weather API test project.
 
 ## Table of Contents
 * [Introduction](#introduction)
-* [How To Run Test](#instruction)
 * [NuGet Packages](#nuget-packages)
+* [Running the Test](#running-the-test)
 * [Test Implementation](#test-implementation)
 * [Conclusion](#conclusion)
 
 ## Introduction
 
-## How To Run Test
-
 ## NuGet Packages
+
+## Running the Test
 
 ## Test Implementation
 ### Majority of the Tests
