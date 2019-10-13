@@ -1,18 +1,27 @@
 # Open Weather API Test Project
-This repository was created to submit my Open Weather API test project.
-
 ## Table of Contents
 * [Introduction](#introduction)
 * [NuGet Packages](#nuget-packages)
 * [Running the Test](#running-the-test)
 * [Test Implementation](#test-implementation)
-* [Conclusion](#conclusion)
 
 ## Introduction
+This project was created to test the Open Weather API using DTO design pattern and NUint.
+The aim is to test the response from the API if it contains the correct data.
 
 ## NuGet Packages
+ - [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) - A library that allows user to process data in Json format
+ - [NUnit](https://www.nuget.org/packages/NUnit/) - NUnit is a unit-testing framework for all .Net languages.
+ - [NUnit3TestAdapter](https://www.nuget.org/packages/NUnit3TestAdapter/) - NUnit 3 adapter for running tests in Visual Studio.
+ - [RestSharp](https://www.nuget.org/packages/RestSharp/) - A library that allows user to handle connection between Restful APIs.
 
 ## Running the Test
+1. Clone this project ```https://github.com/pgreene-spartaglobal/OpenWeatherMapTest.git```
+2. Open **OpenWeatherMapTest.sln** 
+3. Right click on the **'OpenWeatherMapTest'** Project file in the Solution Explorer and click **'Manage NuGet Packages..."**
+4. Install all the NuGet packages mentioned in the earlier section
+5. Click on **Test -> Windows -> Test Explorer** to open the test menu
+6. Click on the Run All buttons in the Test Explorer
 
 ## Test Implementation
 ### Majority of the Tests
@@ -58,5 +67,3 @@ This repository was created to submit my Open Weather API test project.
     * However assumptions can be made for some attributes, i.e. ID should be positve (Greater than 0)
   * Maximum numerical value 
     * No specification of the attribute about maximum value
-    
-## Conclusion
