@@ -14,418 +14,413 @@ namespace OpenWeatherAPI.Tests
     class OpenWeatherTest
     {
         public OpenWeatherService service = new OpenWeatherService();
-        public OpenWeatherTest()
-        {
-
-        }
-
         [Test]
-        public void Attribute_Coord_Lon_DataType_Test01()
+        public void AttributeCoordLonDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.coord.lon);
         }
 
         [Test]
-        public void Attribute_Coord_Lon_DataType_Test02()
+        public void AttributeCoordLonDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.coord.lon);
         }
 
         [Test]
-        public void Attribute_Coord_Lat_DataType_Test01()
+        public void AttributeCoordLatDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.coord.lat);
         }
 
         [Test]
-        public void Attribute_Coord_Lat_DataType_Test02()
+        public void AttributeCoordLatDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.coord.lat);
         }
 
 
         [Test]
-        public void Attribute_Weather_Id_DataType_Test01()
+        public void AttributeWeatherIdDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.weather[0].id);
         }
 
         [Test]
-        public void Attribute_Weather_Id_DataType_Test02()
+        public void AttributeWeatherIdDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.weather[0].id);
         }
 
         [Test]
-        public void Attribute_Weather_Id_Range_Test01()
+        public void AttributeWeatherIdRangeTest01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.weather[0].id, 0);
         }
 
         [Test]
-        public void Attribute_Weather_Main_DataType_Test01()
+        public void AttributeWeatherMainDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.weather[0].main);
         }
 
         [Test]
-        public void Attribute_Weather_Main_DataType_Test02()
+        public void AttributeWeatherMainDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.WeatherReport.weather[0].main);
         }
 
         [Test]
-        public void Attribute_Weather_Main_Length_Test01()
+        public void AttributeWeatherMainLengthTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.weather[0].main.Length, 0);
         }
 
         [Test]
-        public void Attribute_Weather_Description_DataType_Test01()
+        public void AttributeWeatherDescriptionDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.weather[0].description);
         }
 
         [Test]
-        public void Attribute_Weather_Description_DataType_Test02()
+        public void AttributeWeatherDescriptionDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.weather[0].description);
         }
 
         [Test]
-        public void Attribute_Weather_Description_Length_Test01()
+        public void AttributeWeatherDescriptionLengthTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.weather[0].description.Length, 0);
         }
 
         [Test]
-        public void Attribute_Weather_Icon_DataType_Test01()
+        public void AttributeWeatherIconDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.weather[0].icon);
         }
 
         [Test]
-        public void Attribute_Weather_Icon_DataType_Test02()
+        public void AttributeWeatherIconDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.weather[0].icon);
         }
 
         [Test]
-        public void Attribute_Weather_Icon_Length_Test01()
+        public void AttributeWeatherIconLengthTest01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.weather[0].icon.Length, 0);
         }
 
         [Test]
-        public void Attribute_Base_DataType_Test01()
+        public void AttributeBaseDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.@base);
         }
 
         [Test]
-        public void Attribute_Base_DataType_Test02()
+        public void AttributeBaseDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.WeatherReport.@base);
         }
 
         [Test]
-        public void Attribute_Base_Length_Test01()
+        public void AttributeBaseLengthTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.@base.Length, 0);
         }
 
         [Test]
-        public void Attribute_Main_Temp_DataType_Test01()
+        public void AttributeMainTempDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.main.temp);
         }
 
         [Test]
-        public void Attribute_Main_Temp_DataType_Test02()
+        public void AttributeMainTempDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.WeatherReport.main.temp);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Range_Test01()
+        public void AttributeMainTempRangeTest01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.main.temp, service.weatherDTO.WeatherReport.main.temp_min);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Range_Test02()
+        public void AttributeMainTempRangeTest02()
         {
             Assert.LessOrEqual(service.weatherDTO.WeatherReport.main.temp, service.weatherDTO.WeatherReport.main.temp_max);
         }
 
         [Test]
-        public void Attribute_Main_Pressure_DataType_Test01()
+        public void AttributeMainPressureDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.main.pressure);
         }
 
         [Test]
-        public void Attribute_Main_Pressure_DataType_Test02()
+        public void AttributeMainPressureDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(long), service.weatherDTO.WeatherReport.main.pressure);
         }
 
         [Test]
-        public void Attribute_Main_Pressure_Range_Test01()
+        public void AttributeMainPressureRangeTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.main.pressure, 0);
         }
 
         [Test]
-        public void Attribute_Main_Humidity_DataType_Test01()
+        public void AttributeMainHumidityDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.main.humidity);
         }
 
         [Test]
-        public void Attribute_Main_Humidity_DataType_Test02()
+        public void AttributeMainHumidityDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.main.humidity);
         }
 
         [Test]
-        public void Attribute_Main_Humidity_Range_Test01()
+        public void AttributeMainHumidityRangeTest01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.main.humidity, 0);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Min_DataType_Test01()
+        public void AttributeMainTempMinDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.main.temp_min);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Min_DataType_Test02()
+        public void AttributeMainTempMinDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.main.temp_min);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Min_Range_Test01()
+        public void AttributeMainTempMinRangeTest01()
         {
-            //temp_min should be less than or equal to temp_max
+            //tempmin should be less than or equal to tempmax
             Assert.LessOrEqual(service.weatherDTO.WeatherReport.main.temp_min, service.weatherDTO.WeatherReport.main.temp_max);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Max_DataType_Test01()
+        public void AttributeMainTempMaxDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.main.temp_max);
         }
 
         [Test]
-        public void Attribute_Main_Temp_Max_DataType_Test02()
+        public void AttributeMainTempMaxDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.main.temp_max);
         }
 
         [Test]
-        public void Attribute_Main_Sea_Level_DataType_Test01()
+        public void AttributeMainSeaLevelDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.main.sea_level);
         }
 
         [Test]
-        public void Attribute_Main_Sea_Level_DataType_Test02()
+        public void AttributeMainSeaLevelDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(short), service.weatherDTO.WeatherReport.main.sea_level);
         }
 
         [Test]
-        public void Attribute_Main_Grnd_Level_DataType_Test01()
+        public void AttributeMainGrndLevelDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.main.grnd_level);
         }
 
         [Test]
-        public void Attribute_Main_Grnd_Level_DataType_Test02()
+        public void AttributeMainGrndLevelDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.WeatherReport.main.grnd_level);
         }
 
         [Test]
-        public void Attribute_Visibility_DataType_Test01()
+        public void AttributeVisibilityDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.visibility);
         }
 
         [Test]
-        public void Attribute_Visibility_DataType_Test02()
+        public void AttributeVisibilityDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.visibility);
         }
 
         [Test]
-        public void Attribute_Visibility_Range_Test01()
+        public void AttributeVisibilityRangeTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.visibility, 0);
         }
 
         [Test]
-        public void Attribute_Wind_Speed_DataType_Test01()
+        public void AttributeWindSpeedDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.wind.speed);
         }
 
         [Test]
-        public void Attribute_Wind_Speed_DataType_Test02()
+        public void AttributeWindSpeedDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.WeatherReport.wind.speed);
         }
 
         [Test]
-        public void Attribute_Wind_Speed_Range_Test()
+        public void AttributeWindSpeedRangeTest()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.wind.speed, 0);
         }
 
         [Test]
-        public void Attribute_Wind_Deg_DataType_Test01()
+        public void AttributeWindDegDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.wind.deg);
         }
 
         [Test]
-        public void Attribute_Wind_Deg_DataType_Test02()
+        public void AttributeWindDegDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.wind.deg);
         }
 
         [Test]
-        public void Attribute_Wind_Deg_Range_Test01()
+        public void AttributeWindDegRangeTest01()
         {
             Assert.GreaterOrEqual(service.weatherDTO.WeatherReport.wind.deg, 0);
         }
 
         [Test]
-        public void Attribute_Wind_Deg_Range_Test02()
+        public void AttributeWindDegRangeTest02()
         {
             Assert.LessOrEqual(service.weatherDTO.WeatherReport.wind.deg, 360);
         }
 
         [Test]
-        public void Attribute_Clouds_All_DataType_Test01()
+        public void AttributeCloudsAllDataTypeTest01()
         {
 
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.clouds.all);
         }
 
         [Test]
-        public void Attribute_Clouds_All_DataType_Test02()
+        public void AttributeCloudsAllDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(short), service.weatherDTO.WeatherReport.clouds.all);
         }
 
         [Test]
-        public void Attribute_Dt_DataType_Test01()
+        public void AttributeDtDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.dt);
         }
 
         [Test]
-        public void Attribute_Dt_DataType_Test02()
+        public void AttributeDtDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.dt);
         }
 
         [Test]
-        public void Attribute_Sys_Type_DataType_Test01()
+        public void AttributeSysTypeDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.type);
         }
 
         [Test]
-        public void Attribute_Sys_Type_DataType_Test02()
+        public void AttributeSysTypeDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.WeatherReport.sys.type);
         }
 
         [Test]
-        public void Attribute_Sys_Id_DataType_Test01()
+        public void AttributeSysIdDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.id);
         }
 
         [Test]
-        public void Attribute_Sys_Id_DataType_Test02()
+        public void AttributeSysIdDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.WeatherReport.sys.id);
         }
 
         [Test]
-        public void Attribute_Sys_Message_DataType_Test01()
+        public void AttributeSysMessageDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(double), service.weatherDTO.WeatherReport.sys.message);
         }
 
         [Test]
-        public void Attribute_Sys_Message_DataType_Test02()
+        public void AttributeSysMessageDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.sys.message);
         }
 
         [Test]
-        public void Attribute_Sys_Country_DataType_Test01()
+        public void AttributeSysCountryDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.sys.country);
         }
 
         [Test]
-        public void Attribute_Sys_Country_DataType_Test02()
+        public void AttributeSysCountryDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.sys.country);
         }
 
         [Test]
-        public void Attribute_Sys_Country_Length_Test01()
+        public void AttributeSysCountryLengthTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.sys.country.Length, 0);
         }
 
         [Test]
-        public void Attribute_Sys_Sunrise_DataType_Test01()
+        public void AttributeSysSunriseDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.sunrise);
         }
 
         [Test]
-        public void Attribute_Sys_Sunrise_DataType_Test02()
+        public void AttributeSysSunriseDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(short), service.weatherDTO.WeatherReport.sys.sunrise);
         }
 
         [Test]
-        public void Attribute_Sys_Sunrise_Range_Test01()
+        public void AttributeSysSunriseRangeTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.sys.sunrise, 0);
         }
 
         [Test]
-        public void Attribute_Sys_Sunset_DataType_Test01()
+        public void AttributeSysSunsetDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.sys.sunset);
         }
 
         [Test]
-        public void Attribute_Sys_Sunset_DataType_Test02()
+        public void AttributeSysSunsetDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(long), service.weatherDTO.WeatherReport.sys.sunset);
         }
 
         [Test]
-        public void Attribute_Sys_Sunset_Range_Test01()
+        public void AttributeSysSunsetRangeTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.sys.sunset, 0);
         }
 
         [Test]
-        public void Attribute_Rain_1h_DataType_Test01()
+        public void AttributeRain1hDataTypeTest01()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.rain != null)
@@ -435,7 +430,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Rain_1h_DataType_Test02()
+        public void AttributeRain1hDataTypeTest02()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.rain != null)
@@ -445,7 +440,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Rain_1h_Range_Test01()
+        public void AttributeRain1hRangeTest01()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.rain != null)
@@ -455,7 +450,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Rain_3h_DataType_Test01()
+        public void AttributeRain3hDataTypeTest01()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.rain != null)
@@ -465,7 +460,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Rain_3h_DataType_Test02()
+        public void AttributeRain3hDataTypeTest02()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.rain != null)
@@ -475,7 +470,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Rain_3h_Rnage_Test01()
+        public void AttributeRain3hRnageTest01()
         {
             //Rain maybe null if weather is not rainning. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.rain != null)
@@ -485,7 +480,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Snow_1h_DataType_Test01()
+        public void AttributeSnow1hDataTypeTest01()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.snow != null)
@@ -495,7 +490,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Snow_1h_DataType_Test02()
+        public void AttributeSnow1hDataTypeTest02()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.snow != null)
@@ -505,7 +500,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Snow_1h_Range_Test01()
+        public void AttributeSnow1hRangeTest01()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.snow != null)
@@ -515,7 +510,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Snow_3h_DataType_Test01()
+        public void AttributeSnow3hDataTypeTest01()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.snow != null)
@@ -525,7 +520,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Snow_3h_DataType_Test02()
+        public void AttributeSnow3hDataTypeTest02()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.snow != null)
@@ -535,7 +530,7 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Snow_3h_Range_Test01()
+        public void AttributeSnow3hRangeTest01()
         {
             //Snow maybe null if weather is not snow. The attribute will not be contained in the result
             if (service.weatherDTO.WeatherReport.snow != null)
@@ -545,289 +540,289 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Attribute_Timezone_DataType_Test01()
+        public void AttributeTimezoneDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.timezone);
         }
 
         [Test]
-        public void Attribute_Timezone_DataType_Test02()
+        public void AttributeTimezoneDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.WeatherReport.timezone);
         }
 
         [Test]
-        public void Attribute_Id_DataType_Test01()
+        public void AttributeIdDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.id);
         }
 
         [Test]
-        public void Attribute_Id_DataType_Test02()
+        public void AttributeIdDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(double), service.weatherDTO.WeatherReport.id);
         }
 
         [Test]
-        public void Attribute_Id_Range_Test01()
+        public void AttributeIdRangeTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.id, 0);
         }
 
         [Test]
-        public void Attribute_Name_DataType_Test01()
+        public void AttributeNameDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.WeatherReport.name);
         }
 
         [Test]
-        public void Attribute_Name_DataType_Test02()
+        public void AttributeNameDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.WeatherReport.name);
         }
 
         [Test]
-        public void Attribute_Name_Length_Test01()
+        public void AttributeNameLengthTest01()
         {
             Assert.Greater(service.weatherDTO.WeatherReport.name.Length, 0);
         }
 
         [Test]
-        public void Attribute_Cod_DataType_Test01()
+        public void AttributeCodDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.WeatherReport.cod);
         }
 
         [Test]
-        public void Attribute_Cod_DataType_Test02()
+        public void AttributeCodDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.WeatherReport.cod);
         }
 
         [Test]
-        public void Header_Connection_DataType_Test01()
+        public void HeaderConnectionDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Connection);
         }
 
         [Test]
-        public void Header_Connection_DataType_Test02()
+        public void HeaderConnectionDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(char), service.weatherDTO.ReportHeader.Connection);
         }
 
         [Test]
-        public void Header_Connection_Value_Test01()
+        public void HeaderConnectionValueTest01()
         {
             Assert.AreEqual("keep-alive", service.weatherDTO.ReportHeader.Connection);
         }
 
         [Test]
-        public void Header_Connection_Value_Test02()
+        public void HeaderConnectionValueTest02()
         {
             Assert.AreNotEqual("alive", service.weatherDTO.ReportHeader.Connection);
         }
 
         [Test]
-        public void Header_Connection_Length_Test01()
+        public void HeaderConnectionLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Connection.Length, 0);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Origin_DataType_Test01()
+        public void HeaderAccessControlAllowOriginDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Origin_DataType_Test02()
+        public void HeaderAccessControlAllowOriginDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Origin_Value_Test01()
+        public void HeaderAccessControlAllowOriginValueTest01()
         {
             Assert.AreEqual("*", service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Origin_Value_Test02()
+        public void HeaderAccessControlAllowOriginValueTest02()
         {
             Assert.AreNotEqual("All", service.weatherDTO.ReportHeader.Access_Control_Allow_Origin);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Origin_Length_Test01()
+        public void HeaderAccessControlAllowOriginLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Access_Control_Allow_Origin.Length, 0);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Credentials_DataType_Test01()
+        public void HeaderAccessControlAllowCredentialsDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(bool), service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Credentials_DataType_Test02()
+        public void HeaderAccessControlAllowCredentialsDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Credentials_Value_Test01()
+        public void HeaderAccessControlAllowCredentialsValueTest01()
         {
             Assert.AreEqual(true, service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Credentials_Value_Test02()
+        public void HeaderAccessControlAllowCredentialsValueTest02()
         {
             Assert.AreNotEqual(false, service.weatherDTO.ReportHeader.Access_Control_Allow_Credentials);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Methods_DataType_Test01()
+        public void HeaderAccessControlAllowMethodsDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Methods_DataType_Test02()
+        public void HeaderAccessControlAllowMethodsDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Methods_Value_Test01()
+        public void HeaderAccessControlAllowMethodsValueTest01()
         {
             Assert.AreEqual("GET, POST", service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Methods_Value_Test02()
+        public void HeaderAccessControlAllowMethodsValueTest02()
         {
             Assert.AreNotEqual("GET", service.weatherDTO.ReportHeader.Access_Control_Allow_Methods);
         }
 
         [Test]
-        public void Header_Access_Control_Allow_Methods_Length_Test01()
+        public void HeaderAccessControlAllowMethodsLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Access_Control_Allow_Methods.Length, 0);
         }
 
         [Test]
-        public void Header_X_Cache_Key_DataType_Test01()
+        public void HeaderXCacheKeyDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.X_Cache_Key);
         }
 
         [Test]
-        public void Header_X_Cache_Key_DataType_Test02()
+        public void HeaderXCacheKeyDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.ReportHeader.X_Cache_Key);
         }
 
         [Test]
-        public void Header_X_Cache_Key_Length_Test01()
+        public void HeaderXCacheKeyLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.X_Cache_Key.Length, 0);
         }
 
         [Test]
-        public void Header_Content_Length_DataType_Test01()
+        public void HeaderContentLengthDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(int), service.weatherDTO.ReportHeader.Content_Length);
         }
 
         [Test]
-        public void Header_Content_Length_DataType_Test02()
+        public void HeaderContentLengthDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Content_Length);
         }
 
         [Test]
-        public void Header_Content_Length_Range_Test01()
+        public void HeaderContentLengthRangeTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Content_Length, 0);
         }
 
         [Test]
-        public void Header_Content_Type_DataType_Test01()
+        public void HeaderContentTypeDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Content_Type);
         }
 
         [Test]
-        public void Header_Content_Type_DataType_Test02()
+        public void HeaderContentTypeDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(bool), service.weatherDTO.ReportHeader.Content_Type);
         }
 
         [Test]
-        public void Header_Content_Type_Value_Test01()
+        public void HeaderContentTypeValueTest01()
         {
             Assert.AreEqual("application/json; charset=utf-8", service.weatherDTO.ReportHeader.Content_Type);
         }
 
         [Test]
-        public void Header_Content_Type_Value_Test02()
+        public void HeaderContentTypeValueTest02()
         {
             Assert.AreNotEqual("application/xml;charset=utf-8", service.weatherDTO.ReportHeader.Content_Type);
         }
 
         [Test]
-        public void Header_Content_Type_Length_Test01()
+        public void HeaderContentTypeLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Content_Type.Length, 0);
         }
 
         [Test]
-        public void Header_Server_DataType_Test01()
+        public void HeaderServerDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Server);
         }
 
         [Test]
-        public void Header_Server_DataType_Test02()
+        public void HeaderServerDataTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(int), service.weatherDTO.ReportHeader.Server);
         }
 
         [Test]
-        public void Header_Server_Value_Test01()
+        public void HeaderServerValueTest01()
         {
             Assert.AreEqual("openresty", service.weatherDTO.ReportHeader.Server);
         }
 
         [Test]
-        public void Header_Server_Value_Test02()
+        public void HeaderServerValueTest02()
         {
             Assert.AreNotEqual("Microsoft-IIS/8,5", service.weatherDTO.ReportHeader.Server);
         }
 
         [Test]
-        public void Header_Server_Length_Test01()
+        public void HeaderServerLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Server.Length, 0);
         }
 
         [Test]
-        public void Header_Date_DataType_Test01()
+        public void HeaderDateDataTypeTest01()
         {
             Assert.IsInstanceOf(typeof(string), service.weatherDTO.ReportHeader.Date);
         }
 
         [Test]
-        public void Header_Date_DateType_Test02()
+        public void HeaderDateDateTypeTest02()
         {
             Assert.IsNotInstanceOf(typeof(DateTime), service.weatherDTO.ReportHeader.Date);
         }
 
         [Test]
-        public void Header_Date_Format_Test01()
+        public void HeaderDateFormatTest01()
         {
             //format: Web dd OCT yyyy hh:mm:ss UDA
             string format = "([A-Z][a-z][a-z],) ([0-9][0-9])..([A-z])..[0-2][0-9][0-9][0-9] [0-2][0-9]:[0-6][0-9]:[0-6][0-9]..[A-Z][A-Z]";
@@ -835,19 +830,19 @@ namespace OpenWeatherAPI.Tests
         }
 
         [Test]
-        public void Header_Date_Length_Test01()
+        public void HeaderDateLengthTest01()
         {
             Assert.Greater(service.weatherDTO.ReportHeader.Date.Length, 0);
         }
 
         [Test]
-        public void Response_Status_Test01()
+        public void ResponseStatusTest01()
         {
             Assert.AreEqual(HttpStatusCode.OK, service.statusCode);
         }
 
         [Test]
-        public void Response_Status_Test02()
+        public void ResponseStatusTest02()
         {
             Assert.AreNotEqual(HttpStatusCode.NotFound, service.statusCode);
         }
